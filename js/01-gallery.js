@@ -8,12 +8,12 @@ galleryCreate(galleryItems);
 container.addEventListener("click", imgClick);
 
 function imgClick(evt) {
-  console.dir(evt.target.alt);
-  if (evt.target === evt.currentTarget) {
+    evt.preventDefault()
+    if (evt.target === evt.currentTarget) {
     return;
   }
   const elm = galleryItems.find((item) => item.description === evt.target.alt);
-  console.dir(elm);
+  
   
   
   const instance = basicLightbox.create(`
@@ -22,6 +22,16 @@ function imgClick(evt) {
 `)
 
 instance.show()
+
+document.addEventListener('keyup', event =>{
+    if (event.key !== 'Escape') {
+        return
+    }
+    instance.close()
+    console.log(event)})
+
+
+
 }
 
 function galleryCreate() {
@@ -29,16 +39,18 @@ function galleryCreate() {
 
   for (let i = 0; i < galleryItems.length; i++) {
     const elm = galleryItems[i];
-    const item = `
-    <li class="gallery__item">
-    <img src="${elm.preview}" alt="${elm.description}" class = "gallery__image data">
-     
-  </li>`;
+    const item = `<a class="gallery__link" href="large-image.jpg">
+      <img class="gallery__image" src="${elm.preview}" data-source="${elm.original}" alt="${elm.description}"
+      />
+    </a>`
+
     arr.push(item);
   }
 
   return (container.innerHTML = [...arr]);
 }
 
-// console.log(container)
-// console.log(galleryItems);
+
+
+
+
