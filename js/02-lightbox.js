@@ -5,35 +5,15 @@ const container = document.querySelector(".gallery");
 
 galleryCreate(galleryItems);
 
-// import SimpleLightbox from "simplelightbox";
-// new SimpleLightbox('.container a', { /* options */ });
+const lightbox = new SimpleLightbox('.gallery a', { 
+    captionsData: "alt",
+    captionDelay: 250,
+    
+ });
 
-console.log(container)
 
-// container.addEventListener("click", imgClick);
 
-// function imgClick(evt) {
-//   evt.preventDefault();
-//   if (evt.target === evt.currentTarget) {
-//     return;
-//   }
-//   const elm = galleryItems.find((item) => item.description === evt.target.alt);
 
-//   const instance = basicLightbox.create(`
-//   <img src="${elm.original}" alt="${elm.description}" width="800" height="600">
-  
-// `);
-
-//   instance.show();
-
-//   document.addEventListener("keyup", (event) => {
-//     if (event.key !== "Escape") {
-//       return;
-//     }
-//     instance.close();
-//     console.log(event);
-//   });
-// }
 
 function galleryCreate() {
   const arr = [];
