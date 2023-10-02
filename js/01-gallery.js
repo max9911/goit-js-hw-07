@@ -28,7 +28,8 @@ document.addEventListener('keyup', event =>{
         return
     }
     instance.close()
-    console.log(event)})
+    
+})
 
 
 
@@ -39,10 +40,13 @@ function galleryCreate() {
 
   for (let i = 0; i < galleryItems.length; i++) {
     const elm = galleryItems[i];
-    const item = `<a class="gallery__link" href="large-image.jpg">
+    const item = `
+    <li class="gallery__item">
+    <a class="gallery__link" href="${elm.original}">
       <img class="gallery__image" src="${elm.preview}" data-source="${elm.original}" alt="${elm.description}"
       />
-    </a>`
+    </a>
+    </li>`
 
     arr.push(item);
   }
