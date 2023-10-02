@@ -6,7 +6,9 @@ const container = document.querySelector(".gallery");
 galleryCreate(galleryItems);
 
 // import SimpleLightbox from "simplelightbox";
-new SimpleLightbox('.some-element a', { /* options */ });
+// new SimpleLightbox('.container a', { /* options */ });
+
+console.log(container)
 
 // container.addEventListener("click", imgClick);
 
@@ -40,7 +42,7 @@ function galleryCreate() {
     const elm = galleryItems[i];
     const item = `
       <li class="gallery__item">
-        <a class="gallery__link" href="large-image.jpg">
+        <a class="gallery__link" href="${elm.original}">
          <img class="gallery__image" src="${elm.preview}" alt="${elm.description}" />
         </a>
       </li>
