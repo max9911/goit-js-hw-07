@@ -32,5 +32,5 @@ function galleryCreate() {
     arr.push(item);
   }
 
-  return (container.innerHTML = [...arr]);
+  return (container.innerHTML = arr.join(''));
 }
